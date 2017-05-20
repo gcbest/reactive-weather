@@ -32,7 +32,7 @@ class Nav extends Component {
                                 <input type="search" placeholder="Search weather"/>
                             </li>
                             <li>
-                                <input type="submit" className="button">Get Weather</input>
+                                <button type="submit" className="button">Get Weather</button>
                             </li>
                         </ul>
                     </form>
