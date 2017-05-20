@@ -4,7 +4,7 @@ const WeatherMessage = ({temp, location}) => {
     // var {temp, location} = props;
     return (
         <div>
-            <p>It is always {temp} in {location}</p>
+            <p className="text-center">It is always {temp} in {location}</p>
         </div>
     );
 };

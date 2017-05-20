@@ -16,5 +16,5 @@ app.use((req, res, next) => {
 app.use(express.static('public'));
 
 app.listen(PORT, function() {
-    console.log('App running on port' + PORT);
+    console.log('App running on port ' + PORT);
 });
