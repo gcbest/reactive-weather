@@ -1,14 +1,12 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
-
-// Load foundation
-$(document).foundation();
-
-// App css
-require('style!css!sass!applicationStyles')
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Route, Router, IndexRoute, browserHistory} from 'react-router';
+import Main from './components/Main';
 
 ReactDOM.render(
-  <p>Boilerplate 3 Project</p>,
-  document.getElementById('app')
+    <Router history={browserHistory}>
+        <Route path="/" component={Main}>
+        </Route>
+    </Router>,
+    document.getElementById('app')
 );
