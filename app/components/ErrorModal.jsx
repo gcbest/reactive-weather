@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from'prop-types';
+import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 
 class ErrorModal extends Component {
     componentDidMount () {
-        var modal = new Foundation.Reveal($('#error-modal'));
-        modal.open();
-    }
-    render () {
-        var {title, message} = this.props
-        return (
+        var {title, message} = this.props;
+
+        var modalMarkup = (
             <div className="reveal tiny text-center" id="error-modal" data-reveal="">
                 <h4>{title}</h4>
                 <p>{message}</p>
@@ -17,6 +16,18 @@ class ErrorModal extends Component {
                         Okay
                     </button>
                 </p>
+            </div>
+        );
+
+        var $modal = $(ReactDOMServer.renderToString(modalMarkup));
+
+        $(ReactDOM.findDOMNode(this)).html($modal);
+        var modal = new Foundation.Reveal($('#error-modal'));
+        modal.open();
+    }
+    render () {
+        return (
+            <div>
             </div>
         );
     }
