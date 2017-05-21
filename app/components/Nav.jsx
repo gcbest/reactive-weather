@@ -4,10 +4,13 @@ import {Link, IndexLink} from 'react-router';
 class Nav extends Component {
     onSearch (e) {
         e.preventDefault();
-        debugger;
         var navLocation = this.refs.search.value;
-        debugger;
-        alert(navLocation);
+        var encodedLocation = encodeURIComponent(navLocation);
+
+        if (navLocation.length > 0) {
+            this.refs.search.value = '';
+            window.location.hash = `#/?location=${encodedLocation}`;
+        }
     }
     render () {
         return (

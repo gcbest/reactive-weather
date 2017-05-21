@@ -21,6 +21,16 @@ class Weather extends Component {
             window.location.hash = '#/';
         }
     }
+    componentWillReceiveProps (newProps) {
+        // we are change the query parameter in the url so we have to
+        // notify that the prop is changing
+        var location = newProps.location.query.location;
+
+        if (location && location.length > 0) {
+            this.handleSearch(location);
+            window.location.hash = '#/';
+        }
+    }
     handleSearch (location) {
         var that = this;
 
