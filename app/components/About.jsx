@@ -9,10 +9,6 @@ import {Link} from 'react-router';
 //     }
 // }
 
-// // Load foundation
-// require('style-loader!css-loader!foundation-sites/dist/foundation.min.css');
-// $(document).foundation();
-
 const About = (props) => {
   return (
       <div>

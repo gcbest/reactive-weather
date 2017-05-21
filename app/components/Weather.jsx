@@ -13,11 +13,22 @@ class Weather extends Component {
         };
         this.handleSearch = this.handleSearch.bind(this);
     }
+    componentDidMount () {
+        var location = this.props.location.query.location;
+
+        if (location && location.length > 0) {
+            this.handleSearch(location);
+            window.location.hash = '#/';
+        }
+    }
     handleSearch (location) {
         var that = this;
 
         this.setState({
-            isLoading: true
+            isLoading: true,
+            errorMessage: undefined,
+            location: undefined,
+            temp: undefined
         });
 
         openWeatherMap.getTemp(location).then((temp) => {
@@ -55,7 +66,7 @@ class Weather extends Component {
         }
         return (
             <div>
-                <h3 className="text-center">Weather Component</h3>
+                <h3 className="text-center page-title">Weather Component</h3>
                 <WeatherForm onSearch={this.handleSearch}/>
                 {renderMessage()}
                 {renderError()}

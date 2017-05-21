@@ -20,6 +20,9 @@ module.exports = {
         filename: './public/bundle.js'
     },
     resolve: {
+        alias: {
+            applicationStyles: 'app/styles/app.css'
+        },
       extensions: ['.js', '.jsx']
     },
     module: {
